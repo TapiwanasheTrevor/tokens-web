@@ -27,8 +27,20 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 Route::post('/login', [AuthenticatedSessionController::class, 'apistore'])
     ->middleware('guest');
 
+Route::post('/meters/add', [TokenController::class, 'addmeter'])
+    ->middleware('guest');
+
 Route::post('/buy', [TokenController::class, 'buy'])
     ->middleware('guest');
 
-Route::get('/tokens/{id}', [TokenController::class, 'list'])
+Route::get('/meters/{id}', [TokenController::class, 'list'])
+    ->middleware('guest');
+
+Route::get('/devices', [TokenController::class, 'devices'])
+    ->middleware('guest');
+
+Route::get('/tokens/{id}', [TokenController::class, 'tokens'])
+    ->middleware('guest');
+
+Route::get('/usage/{id}', [TokenController::class, 'getMyUsage'])
     ->middleware('guest');

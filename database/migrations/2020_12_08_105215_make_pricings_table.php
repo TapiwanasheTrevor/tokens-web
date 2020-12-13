@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToToken extends Migration
+class MakePricingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddFieldsToToken extends Migration
      */
     public function up()
     {
-        Schema::table('tokens', function (Blueprint $table) {
-            $table->integer('meter_id');
-            $table->integer('units');
-            $table->decimal('price', 10, 2);
+        Schema::create('pricings', function (Blueprint $table) {
+            $table->id();
+            $table->integer('price');
+            $table->integer('limit');
+            $table->timestamps();
+
         });
     }
 
@@ -27,7 +29,7 @@ class AddFieldsToToken extends Migration
      */
     public function down()
     {
-        Schema::table('tokens', function (Blueprint $table) {
+        Schema::table('pricings', function (Blueprint $table) {
             //
         });
     }

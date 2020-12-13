@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMetersTable extends Migration
+class CreateDevicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateMetersTable extends Migration
      */
     public function up()
     {
-        Schema::create('meters', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->id();
+            $table->integer('icon');
+            $table->string('name');
+            $table->integer('wattage');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateMetersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meters');
+        Schema::dropIfExists('devices');
     }
 }

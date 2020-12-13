@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Clients') }}
+            {{ __('System Clients') }}
         </h2>
     </x-slot>
 
@@ -37,7 +37,7 @@
                             <td class="border py-2">{{ $loop->iteration }}</td>
                             <td class="border py-2 text-center">{{ $user->name }}</td>
                             <td class="border py-2 text-center">{{ $user->email }}</td>
-                            <td class="border py-2 text-center">{{ $user->meter }}</td>
+                            <td class="border py-2 text-center">{{ "(".count($user->meters()->get()).") Meters" }}</td>
                             <td class="border py-2 text-center">{{ $user->number }}</td>
                             <td class="border py-2 text-center">
                                 <div class="mx-auto text-center">

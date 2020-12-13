@@ -43,8 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tokens()
+    public function meters()
     {
-        return $this->hasMany(Token::class);
+        return $this->hasMany(Meter::class);
     }
 }

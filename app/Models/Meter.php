@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Token extends Model
+class Meter extends Model
 {
     use HasFactory;
 
-    public function meter()
+    public function tokens()
     {
-        return $this->belongsTo(Meter::class);
+        return $this->hasMany(Token::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToToken extends Migration
+class AddTokenValueToTokenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddFieldsToToken extends Migration
     public function up()
     {
         Schema::table('tokens', function (Blueprint $table) {
-            $table->integer('meter_id');
-            $table->integer('units');
-            $table->decimal('price', 10, 2);
+            $table->string('token')->nullable();
         });
     }
 
